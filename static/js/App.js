@@ -1,8 +1,5 @@
 import { drawHeart, loadHeart } from "./loadHeart.js";
 import { setupPositionFinder, getTheLocationFromDataset } from "./geoFindMe.js";
-import { closeOverlay, setupGalleryNavButtons, setupMenu } from "./menu.js";
-// import { loadSupaBaseLocations, loadSupaBaseMedia } from "../../supabase.js";
-
 
 ///////////////////////////////////////
 export class App {
@@ -15,6 +12,7 @@ export class App {
 
   
   ///////////////////////////////////////
+  // copy to clipboard!
   handleCopyTextFromParagraph(lng, lat) {
     const cb = navigator.clipboard;
     cb.writeText(lng + ", " + lat).then(() => console.log('Text copied'));
@@ -44,18 +42,12 @@ export class App {
     let _this = this; // I DONT HAVE TO DO THIS!!!
     this.map.on('load', () => {
 
-      // setup enterBtn click listener
-      document.getElementById("enterBtn").addEventListener("click", function(e) {
-        e.preventDefault();
-        document.querySelector('#loadingScreen').classList.add("hidden"); // remove entire loadingscreen!
-
-        // Draw all KMLs onto globe
-        drawHeart(_this.map, heartData);
-      })
+      document.querySelector('#loadingScreen').classList.add("hidden"); // remove entire loadingscreen!
+      // Draw all KMLs onto globe
+      drawHeart(_this.map, heartData);
 
       // hide loadingscreen
       document.querySelector("#loadWrapper").classList.add("hidden");
-      document.querySelector("#enterWrapper").classList.add("shown");
 
       _this.map.on('click', function(e) {
         var coords = e.lngLat;
