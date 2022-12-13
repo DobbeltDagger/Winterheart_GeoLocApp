@@ -1,6 +1,0 @@
-//- https://github.com/pugjs/pug/issues/166 - active menus
-//- Declaration (menuItem.pug)
-
-mixin menuItem(activePath, elmId, title, url)
-  li
-    a(href=url, id=elmId, class=(activePath == title ? 'chosen' : ''))= title

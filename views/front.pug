@@ -11,7 +11,6 @@
       link(href='css/grid.css' rel='stylesheet' type="text/css")
       link(href='css/style.css' rel='stylesheet' type="text/css")
       link(href='css/myMapbox.css' rel='stylesheet' type="text/css")
-      link(href='css/galleryOverlay.css' rel='stylesheet' type="text/css")
       link(rel='apple-touch-icon' sizes='180x180' href='./apple-touch-icon.png')
       link(rel='icon' type='image/png' sizes='32x32' href='./favicon-32x32.png')
       link(rel='icon' type='image/png' sizes='16x16' href='./favicon-16x16.png')
@@ -101,20 +100,6 @@
           display: inline-block;
           height: 4em;
           width: 4em;
-          /*
-          color: white;
-          background-color: transparent;
-          border: 2px solid rgba(255,255,255,0.92);
-          border-radius: 1.5em;
-          width: 1.75em;
-          height: 1.75em;
-          overflow: hidden;
-          font-size: 1.75em;
-          padding: 0.65em 1.15em 0.7em 1.15em;
-          margin: 0px;
-          background-color: rgba(0,0,0,0.125);
-          box-shadow: 5px 5px 12px 5px rgb(0 0 0 / 35%);
-          */
         }
         #enterBtn:hover { cursor: pointer; }
         .enterText {
@@ -137,36 +122,10 @@
           // .enterText Enter app ...
           .enterText Welcome<br/>Click to enter
 
-      // overlay for info and app functions
-      #overlay
-        a#closeOverlayBtn +
-
-        include mixins/aboutOverlay.pug
-        +aboutOverlay()
-
-        include mixins/mediaOverlay.pug
-        +mediaOverlay()
-
-        include mixins/onlineMarkerOverlay.pug
-        +onlineMarkerOverlay()
-
-        include mixins/galleryOverlay.pug
-        +galleryOverlay()
-
       // on page, outside overlay
       .pageWrapper
         #map
-        // GEO LOCATION
-        // .geoWrapper
-          #status
-          a#map-link
-
-        include mixins/mobileMenuOverlay.pug
-        +mobileMenuOverlay()
-
-        include mixins/header.pug
-        +header()
 
       script.
-        const locations = JSON.parse(`!{Locations}`); // THIS makes the data global to the window! 
-        const media = JSON.parse(`!{MediaItems}`); // THIS makes the data global to the window! 
+        // const locations = JSON.parse(`!{Locations}`); // THIS makes the data global to the window! 
+        // const media = JSON.parse(`!{MediaItems}`); // THIS makes the data global to the window! 
