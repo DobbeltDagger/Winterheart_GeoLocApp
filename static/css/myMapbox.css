@@ -1,0 +1,220 @@
+
+
+:root {
+  --text-color: rgba(0,0,0,0.86);
+  --boxShadow-color: rgba(0,0,0,0.25);
+  --overlay-bgcolor: darkgreen;
+  --overlay-textColor: rgba(255,255,255,0.96);
+}
+
+/* ************************************************************************ */
+/* MAPBOX */
+
+#map {
+  /*
+  position: fixed;
+  z-index: 1;
+  */
+}
+
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
+
+/* MARKER in map */
+.dot {
+  width: 16px;
+  height: 16px;
+  clip-path: circle(50%);
+  background-color: red;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+.pin {
+  /* transform: rotateZ(15deg) !important; */
+  width: 26px;
+  height: 50px; /* 47px; */
+  background-image: url(../images/pushpin.png);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: 100%;
+}
+/* testing another marker */
+.imageMarker {
+  width: 80px;
+  height: 80px;
+  /* clip-path: circle(50%); */
+  background-color: black;
+  background-image: url(../images/galleryDemo/thumbs/1.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 1px solid white;
+  border-radius: 50%;
+  box-shadow: 6px 3px 12px 2px rgb(0 0 0 / 50%);
+}
+
+
+/*
+.marker {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 4px solid white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+*/
+
+
+/* POPUP */
+.mapboxgl-popup {
+  max-width: 300px !important; /* 500px !important; /* 200px; */
+  
+}
+
+
+/* player inside popup */
+.mapboxgl-popup-content {
+  padding: 2px !important; /* 10px 10px 10px 10px !important; /* 10px 10px 15px; */
+  background-color: var(--overlay-bgcolor) !important;
+  color: var(--overlay-textColor);
+  box-shadow: 0px 1px 12px rgba(0,0,0,0.5);
+}
+
+
+
+/* INSIDE of the popupWrapper */
+.insidePopupWrapper {
+  width: auto !important; /* max-content !important; /* 640px; */
+  max-width: none !important; /* 640px !important; */
+  height: auto;
+  position: relative;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;  
+}
+
+/* img */
+.insidePopupWrapper .imgWrapper {
+  display: block;
+  width: 100%;
+  background-color: #111;
+  margin: 0px;
+  text-align: center;
+  position: relative;
+}
+.insidePopupWrapper .imgWrapper img {
+  max-width: 100%;
+  height: auto;
+}
+.insidePopupWrapper .imgWrapper::after {
+  display: table;
+  content: "";
+  clear: both;
+}
+
+.insidePopupWrapper .imgWrapper a.viewButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  background: rgba(0,0,0,0.75);
+  padding: 0.25em 0.375em 0.25em 0.375em;
+  border-radius: 0.5em;
+  line-height: 1.25em;
+  cursor: pointer;
+  color: var(--overlay-textColor);
+}
+.insidePopupWrapper .imgWrapper a.viewButton:hover {
+  background-color: blue; /* var(--overlay-bgcolor); */
+}
+
+/* text */
+.insidePopupWrapper .txtWrapper {
+  display: block;
+  width: 100%;
+  padding: 1em;
+}
+.insidePopupWrapper .txtWrapper::after {
+  display: table;
+  content: "";
+  clear: both;
+}
+.insidePopupWrapper .txtWrapper h2 {
+  font-size: 24px;
+  line-height: 1.25em;
+  margin: 0px 0px 0.35em 0px;
+}
+.insidePopupWrapper .txtWrapper p {
+  font-size: 16px;
+  line-height: 1.35em;
+  margin: 0px 0px 0.5em 0px;
+}
+.insidePopupWrapper .txtWrapper p:last-of-type {
+  margin: 0px;
+}
+
+/* Tool tips */
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+  border-bottom-color: var(--overlay-bgcolor);
+}
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+  border-top-color: var(--overlay-bgcolor);
+}
+
+
+.mapboxgl-popup-close-button {
+  /*
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 0;
+  border-radius: 0 3px 0 0;
+  cursor: pointer;
+  */
+  border-radius: 0 3px 0 3px;
+  background-color: transparent; /* var(--overlay-bgcolor); */
+  color: var(--overlay-bgcolor);
+  padding: 0.375em 0.5em;
+  font-size: 20px;
+}
+
+.mapboxgl-popup-close-button:hover {
+  color: var(--overlay-textColor);
+}
+
+/* ************************************************************************************ */
+/* ************************************************************************************ */
+/* ************************************************************************************ */
+/* ************************************************************************************ */
+
+
+@media screen {
+
+  #map {
+    inset: 0; /* 0 0 3.25rem 0; */
+  }
+
+}
+
+
+/* ************************************************************************************ */
+/* LARGER */
+
+@media screen and (min-width: 1024px) {
+
+  /*
+  #map {
+    inset: 0 0 3.5rem 0;
+  }
+  */
+
+}
+
+
+

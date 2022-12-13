@@ -1,0 +1,11 @@
+//- https://github.com/pugjs/pug/issues/166 - active menus
+//- Declaration (menuItem.pug)
+mixin mediaUploadOverlay()
+  #mediaUploadOverlay
+    .Grid.Grid--gutters.Grid--full.large-Grid--fit
+      .Grid-cell
+        h2(class="centered") Upload Media
+        p.maxTextWidth Your media is being uploaded. You can follow the individual file uploads below, and you can also pause and resume large downloads, if you wish.
+        // progress bar wrapper
+        #uploadProgressWrapper
+          #filesOverviewWrapper

@@ -1,0 +1,22 @@
+//- https://github.com/pugjs/pug/issues/166 - active menus
+//- Declaration (menuItem.pug)
+mixin menu(activePath)
+  // div= activePath // for debugging
+  #menuWrapper
+    // include menuItem.pug
+    div(class="menuWrapper")
+      <ul id="menu">
+        <li>
+          <a id="aboutBtn">About</a>
+        </li>
+        <li>
+          <a id="mediaBtn">Share Media</a>
+        </li>
+        <li>
+          <a id="zoomToUserBtn" data-lng="" data-lat="" data-accuracy="">Zoom to You</a>
+        </li>
+      </ul>
+
+
+
+        

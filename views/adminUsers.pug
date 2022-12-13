@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+  html(lang="en")
+    head
+      meta(charset='utf-8')
+      title Winterheart
+      meta(name='description' content='Winterheart is a .... Jørn Rønnau')
+      meta(name='viewport' content='width=device-width, initial-scale=1')
+      //- script(src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js')
+      //- link(href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet')
+      link(href='./css/extraFonts.css' rel='stylesheet')
+      link(href='./css/grid.css' rel='stylesheet')
+      link(href='./css/style.css' rel='stylesheet')
+      link(href='./css/adminStyle.css' rel='stylesheet')
+      link(rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png')
+      link(rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png')
+      link(rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png')
+      link(rel='manifest' href='/site.webmanifest')
+      link(rel='mask-icon' href='/safari-pinned-tab.svg' color='#5bbad5')
+      meta(name='msapplication-TileColor' content='#00a300')
+      meta(name='theme-color' content='#ffffff')
+      script(src='https://unpkg.com/@supabase/supabase-js')
+      script(src='./js/adminUsersApp.js' type="module")
+
+    body
+      #adminOverlay.shown
+        .adminOverlayInside
+          .Grid.Grid--gutters.Grid--full.large-Grid--fit
+            .Grid-cell
+              h2 Admin
+          .Grid.Grid--gutters.Grid--full.large-Grid--fit
+            .Grid-cell.g1of1
+              <ul class="adminLinks">
+                <li><a href="/admin">Locations</a></li>
+                <li><a href="/adminMedia">Media items</a></li>
+                <li><a href="/adminUsers" class="active">Users</a></li>
+              </ul>
+          .Grid.Grid--gutters.Grid--full.large-Grid--fit
+            .Grid-cell.g1of1
+              p From this admin panel you can search and edit all the content on the page. Use the text input filter below to find your content
+              p
+                form
+                  label(for='query')
+                    input#query(name='query' type='search' placeholder='Search by typing here' size='50')
+          // dont use grid if i want responsive tables!! https://www.w3schools.com/howto/howto_css_table_responsive.asp
+          div(id="tableAreaWrapper" style='overflow-x: auto')
+          div(id="resultMessage" class="hidden") No results found
+          
+      script.
+        let data = JSON.parse(`!{data}`);
+        // window.addEventListener("DOMContentLoaded", function() {
+        //   let data = JSON.parse(`!{data}`);
+        //   const app = new adminApp(data);
+        //   app.init();
+        // })

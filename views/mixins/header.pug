@@ -1,0 +1,32 @@
+//- https://github.com/pugjs/pug/issues/166 - active menus
+//- Declaration (menuItem.pug)
+mixin header(activePath)
+  header
+    .inside
+      // logo
+      .logoWrapper
+        h1.logo
+          span#bigLogo
+            a#bigLogoBtn Winterheart
+          span#smallLogo
+            a#smallLogoBtn W
+      // mobile menu
+      .mobileMenuWrapper
+        a#burger
+          #burgerIcon
+            svg(width='39' height='39' viewbox='0 0 39 39' fill='none' xmlns='http://www.w3.org/2000/svg')
+              rect(x='4' y='7' width='34' height='3.75' rx='1.75' fill='currentColor')
+              rect(x='4' y='29' width='34' height='3.75' rx='1.75' fill='currentColor')
+              rect(x='1' y='18' width='34' height='3.75' rx='1.75' fill='currentColor')
+          #crossIcon.hide
+            svg(width='39' height='39' viewbox='0 0 39 39' fill='none' xmlns='http://www.w3.org/2000/svg')
+              rect(x='7.21143' y='31.1673' width='36' height='3.75' rx='1.75' transform='rotate(-45 7.21143 31.1673)' fill='currentColor')
+              rect(x='9.33276' y='5.71143' width='36' height='3.75' rx='1.75' transform='rotate(45 9.33276 5.71143)' fill='currentColor')
+      // menu
+      include menu.pug
+      +menu(activePath)
+      // Am i on the line
+      .onLineMarkerWrapper
+        #onLineMarker
+          a#onlineMarkerBtn
+            #onlineLoading

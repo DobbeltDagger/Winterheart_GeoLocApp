@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+  html(lang="en")
+    head
+      meta(charset='utf-8')
+      title Winterheart
+      meta(name='description' content='Winterheart is a .... Jørn Rønnau')
+      meta(name='viewport' content='width=device-width, initial-scale=1')
+      link(href='../css/extraFonts.css' rel='stylesheet')
+      link(href='../css/grid.css' rel='stylesheet')
+      link(href='../css/style.css' rel='stylesheet')
+      link(href='../css/adminStyle.css' rel='stylesheet')
+      link(rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png')
+      link(rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png')
+      link(rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png')
+      link(rel='manifest' href='/site.webmanifest')
+      link(rel='mask-icon' href='/safari-pinned-tab.svg' color='#5bbad5')
+      meta(name='msapplication-TileColor' content='#00a300')
+      meta(name='theme-color' content='#ffffff')
+      script(src='https://unpkg.com/@supabase/supabase-js')
+      script(src='../js/adminSingleApp.js' type='module')
+
+    body
+      #adminOverlay.shown
+        .adminOverlayInside
+          .Grid.Grid--gutters.Grid--full.large-Grid--fit
+            .Grid-cell
+              h2 Admin &rarr; Edit map point
+          .Grid.Grid--gutters.Grid--full.large-Grid--fit
+            .Grid-cell.g1of1
+              p
+                | &larr;&nbsp;
+                a(href='/admin') Back to overview
+          .Grid.Grid--gutters.Grid--full.large-Grid--fit
+            .Grid-cell.g1of1
+              .fullWidthFormWrapper
+                form(id="formSingle")
+                  // ID
+                  .rowDouble
+                    .col-25
+                      label(for='id') Id
+                    .col-75
+                      input(name='id' id="id" type='text' placeholder='id' disabled)
+                    .col-25
+                      label(for='userId') UserID
+                    .col-75
+                      input(name='userId' id="userId" type='text' placeholder='userId' disabled)                      
+                  // CREATED_AT
+                  .row
+                    .col-25
+                      label(for='created_at') created_at
+                    .col-75
+                      input(name='created_at' id="created_at" type='text' placeholder='created_at' disabled)                
+                  // thumb
+                  .rowThumb
+                    .col-25
+                      label(for='thumbImage') Thumb
+                    .col-75
+                      img.formThumb(src='../images/marker.png' id="thumbImage" name="thumbImage")
+                    .col-25
+                      label File:
+                    .col-75
+                      input(name='thumb' id="thumb" type='file' placeholder='Thumb')
+                  // title
+                  .row
+                    .col-25
+                      label(for='title') Title
+                    .col-75
+                      input(name='title' id="title" type='text' placeholder='Title here')
+                  // description
+                  .row
+                    .col-25
+                      label(for='description') Description
+                    .col-75
+                      textarea(name='description' id="description" rows='4' autocorrect='off' spellcheck='false')
+                        | At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
+                  // location
+                  .rowDouble
+                    .col-25
+                      label(for='Lat') Lat
+                    .col-75
+                      input(name='Lat' id="Lat" type='text' placeholder='Location Lat here')
+                    .col-25
+                      label(for='Lng') Lng
+                    .col-75
+                      input(name='Lng' id="Lng" type='text' placeholder='Location Lng here')
+
+                  // Visible
+                  // https://www.w3schools.com/howto/howto_css_custom_checkbox.asp
+                  .rowDouble
+                    .col-25
+                      label(for='visible') Visible
+                    .col-75
+                      input(name='visible' id="visible" type='checkbox')
+                    .col-25
+                      label(for='flagged') Flagged
+                    .col-75
+                      input(name='flagged' id="flagged" type='checkbox')
+                  // submit
+                  button.btnWrapper(type='submit' id="submit") Save content
+                  
+      script.
+        let data = JSON.parse(`!{data}`);

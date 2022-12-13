@@ -1,0 +1,668 @@
+
+:root {
+  --text-color: rgba(0,0,0,0.86);
+  --boxShadow-color: rgba(0,0,0,0.25);
+  --overlay-bgcolor: darkgreen;
+  --overlay-textColor: rgba(255,255,255,0.96);
+}
+
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  width: 0.75rem;
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.35);
+  border: none;
+}
+::-webkit-scrollbar-track {
+  box-shadow: none;
+  background-color: transparent;
+}
+
+/* selection */
+::-moz-selection { /* Code for Firefox */
+  color: white;
+  background: #111;
+}
+::selection {
+  color: white;
+  background: #111;
+}
+
+
+#errorMessageWrapper {
+  display: block;
+  /*
+  position: fixed;
+  z-index: 100;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  */
+}
+.errorMessage {
+  text-align: left;
+  background: orange;
+  border: 1px solid tomato;
+  padding: 1.2em 1.35em;
+  margin-bottom: 1.35em;
+}
+
+
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* SITE SPECIFIC styling ++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  font-size: 21px;
+  line-height: 1.375em;
+  background-color: var(--overlay-bgcolor);
+  height: 100%; /* vh; */
+  overflow: hidden;
+}
+
+
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* TYPOGRAPHY */
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0px 0px 1em 0px;
+  line-height: 1.35em;
+  font-weight: 600;
+}
+h1 {
+  font-size: 2.25em;
+  line-height: 1.1em;
+}
+h2 {
+  font-size: 1.75em;
+  line-height: 1.1em;
+}
+
+p {
+  margin: 0px 0px 1.325em 0px;
+}
+
+
+/* ************************************************************************ */
+/* Header nav in bottom of page */
+
+
+header {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  top: auto;
+  background-color: darkgreen; /* white; */
+  box-shadow: -1px 0px 12px rgba(0,0,0,0.25);
+  z-index: 9000;
+}
+
+header .inside {
+  position: relative;
+  display: grid;
+  grid-template-columns: max-content max-content 1fr max-content;
+  align-items: center; /* end; */
+  /* justify-items: center; */
+  /* justify-content: space-between; */
+  user-select: none;
+}
+
+/* ************************************************************************ */
+/* LOGOWRAPPER */
+
+.logoWrapper {
+  display: block;
+  padding: 0.35em 1em 0.5em 1em;
+}
+
+h1.logo {
+  margin: 0px;
+  font-size: 1.35em;
+  line-height: 1em;
+  color: var(--overlay-textColor);
+  font-weight: 500;
+  letter-spacing: 0.0135em;
+}
+
+h1.logo span#bigLogo {
+  padding: 0px 2em 0px 0px;
+}
+h1.logo span#smallLogo {
+  padding: 0px 1em 0px 0px;
+}
+
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* MENUWRAPPER */
+.menuWrapper {
+}
+
+.menuWrapper ul#menu {
+  display: block;
+  float: left;
+  background-color: transparent; /* white; */
+  border-radius: 0px; /* 0.35rem 0.35rem 0 0; */
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+  pointer-events: all;
+  /* box-shadow: -1px 0px 12px rgba(0,0,0,0.25); */
+  overflow: hidden;
+}
+.menuWrapper ul#menu li {
+  display: block;
+  float: left;
+  /* border-right: 1px solid rgba(0,0,0,0.25); */
+  border-right: 1px solid rgba(255,255,255,0.25);
+}
+.menuWrapper ul#menu li:first-of-type {
+  /* border-left: 1px solid rgba(0,0,0,0.25); */
+  border-left: 1px solid rgba(255,255,255,0.25);
+}
+.menuWrapper ul#menu li a {
+  display: block;
+  float: left;
+  padding: 0.75em 1.125em; /* 1rem 1.35rem; */
+  text-decoration: none;
+  color: white; /* var(--text-color); */
+  font-weight: 400;
+}
+.menuWrapper ul#menu li a:hover {
+  background-color: blue; /* rgb(10, 80, 10); /* var(--bg-color); */
+  color: white;
+  cursor: pointer;
+}
+
+
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* MENUWRAPPER */
+
+/* burger */
+.mobileMenuWrapper {
+  display: block;
+  text-align: center;
+}
+
+/* color for all header links */
+.mobileMenuWrapper a#burger {
+  display: block;
+  color: white; /* var(--text-color); */
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0.5em 0px;
+}
+.mobileMenuWrapper a#burger #burgerIcon svg,
+.mobileMenuWrapper a#burger #crossIcon svg {
+  width: 1.85em;
+  height: 1.85em;
+}
+/* hide for icons */
+.mobileMenuWrapper a#burger #crossIcon.hide,
+.mobileMenuWrapper a#burger #burgerIcon.hide {
+  display: none;
+}
+
+
+/* Mobile full screen overlay */
+#mobileMenuOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  inset: 0;
+  background-color: darkgreen; /* var(--overlay-bgcolor); */
+  transform: translateY(100vh);
+  transition: all none;
+  z-index: 9000; /* 8000 */
+  display: grid;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+#mobileMenuOverlay.shown {
+  transform: translateY(0px);
+  transition: transform 200ms ease;
+}
+
+#mobileMenuOverlay.hidden {
+  transform: translateY(100vh);
+  transition: transform 200ms ease;
+}
+
+#mobileMenuOverlay ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  display: grid;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-items: center; /* start; */
+  grid-gap: 0px; /* 0.1em; */
+}
+
+#mobileMenuOverlay ul li a {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  /* color: var(--text-color); */
+  color: white;
+  border-bottom: 1px solid transparent;
+  font-size: 2em; /* 1.35em; */
+  line-height: 1.35em;
+  padding: 0.125em 0.125em;
+}
+#mobileMenuOverlay ul li a:hover {
+  border-bottom: 1px solid white; /* grey; */
+}
+
+
+
+/* ************************************************************************ */
+/* GEOFINDME infobox */
+
+.geoWrapper {
+  position: fixed;
+  left: 50%; /* 0px; */
+  bottom: auto; /* 0px; */
+  top: 1em;
+  transform: translateX(-50%);
+  background-color: transparent; /* white; */
+  padding: 0px; /* 1em; */
+  width: max-content; /* 200px; */
+  z-index: 8000;
+  border-radius: 0px 0.5em 0px 0px;
+  font-size: 0.9em;
+  visibility: hidden;
+}
+
+
+/* ************************************************************************ */
+/* OVERLAY -- all the other content panels are inside this overlay! */
+
+#overlay {
+  position: fixed;
+  inset: 1rem 1rem 4.5rem 1rem; /* 1rem 1rem 3.5rem 1rem; */
+  box-shadow: 0px 2px 12px var(--boxShadow-color);
+  padding: 2rem;
+  background-color: var(--overlay-bgcolor);
+  color: var(--overlay-textColor);
+  z-index: 8000; /* 9000; */
+  opacity: 0;
+  transition: none;
+  pointer-events: none;
+  overflow-y: auto; /* scroll; */
+}
+
+
+a#closeOverlayBtn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--overlay-textColor);
+  transform: rotateZ(45deg);
+  font-size: 2.75em;
+  font-weight: 200;
+  padding: 0.5rem;
+}
+
+/* ************************************************************************ */
+/* onLineMarker infobox */
+
+.onLineMarkerWrapper {
+  display: block;
+  z-index: 9000;
+  padding: 0px 1em 0px 2em;
+}
+
+#onLineMarker {
+  width: 1.5em;
+  height: 1.5em;
+  background-color: white;
+  border-radius: 50%;
+  /* border: 2px solid white; */
+  box-shadow: 0px 1px 12px rgba(0,0,0,0.2);
+}
+#onLineMarker.outside {
+  background-color: orange;
+}
+#onLineMarker.inside {
+  background-color: lightgreen;
+}
+
+/* Making it pressable! */
+#onLineMarker a#onlineMarkerBtn {
+  display: block;
+  float: left;
+  width: 1.5em;
+  height: 1.5em;
+  cursor: pointer;
+  /* border-radius: 50%; */
+  clip-path: circle(50%);
+}
+
+
+/* ************************************************************************ */
+/* ONLINE MARKER content overlay */
+/* EXPLAINS HOW THE MARKER WORKS */
+#onlineMarkerOverlay {
+  border: 1px solid white;
+}
+
+/* ************************************************************************ */
+/* MEDIA content overlay */
+#mediaOverlay {
+  /* border: 1px solid pink; */
+  text-align: center;
+}
+
+/* ************************************************************************ */
+/* MEDIA content overlay */
+#aboutOverlay {
+  border: 1px solid lightcyan;
+}
+
+/* ************************************************************************ */
+/* gallery overlay for map item media */
+#galleryOverlay {
+  /* border: 1px solid lightgreen; */
+  position: relative; /* vigtig */
+}
+
+/*
+#overlay.shown {
+  opacity: 1.0;
+  transition: opacity 150ms ease;
+  pointer-events: all;
+  visibility: visible;
+  height: auto;
+}
+#overlay.hidden {
+  opacity: 0.0;
+  transition: opacity 150ms ease;
+  pointer-events: none;
+  visibility: hidden;
+  height: 0px;
+  overflow: hidden;
+}
+*/
+
+
+
+
+/* SHOWN / HIDDEN css */
+#overlay.shown,
+#mediaOverlay.shown,
+#onlineMarkerOverlay.shown, 
+#aboutOverlay.shown,
+#galleryOverlay.shown {
+  opacity: 1.0;
+  transition: opacity 150ms ease;
+  pointer-events: all;
+  visibility: visible;
+  height: auto;
+}
+#overlay.hidden,
+#mediaOverlay.hidden,
+#onlineMarkerOverlay.hidden, 
+#aboutOverlay.hidden,
+#galleryOverlay.hidden {
+  opacity: 0.0;
+  transition: opacity 150ms ease;
+  pointer-events: none;
+  visibility: hidden;
+  height: 0px;
+  overflow: hidden;
+}
+
+
+
+
+/* ************************************************************************************ */
+/* client Form Wrapper */
+
+.maxTextWidth {
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.clientFormWrapper {
+  max-width: 800px;
+  margin: 0px auto;
+  text-align: left;
+  border: 1px solid rgba(0,0,0,0.125);
+  padding: 0.65em 1em;
+  border-radius: 5px;
+  background-color: rgba(255,255,255,0.05);
+  box-shadow: 1px 4px 16px rgb(0 0 0 / 10%);
+}
+
+.clientFormWrapper .row {
+  display: grid;
+  grid-template-columns: 7ch 1fr;
+  padding: 0.375em 0em;
+  justify-content: start;
+  align-items: center;
+}
+.clientFormWrapper .rowCenter {
+  display: grid;
+  grid-template-columns: max-content;
+  padding: 0.375em 0em;
+  justify-content: center;
+  align-items: center;  
+  text-align: center;
+}
+.clientFormWrapper .rowHidden {
+  display: grid;
+  grid-template-columns: 7ch 1fr;
+  padding: 0px; /* 0.375em 0em; */
+  justify-content: start;
+  align-items: center;
+}
+.clientFormWrapper .rowHidden div.alert {
+  font-size: 0.9em;
+  color: orange;
+}
+
+.clientFormWrapper input,
+.clientFormWrapper textarea {
+  width: 100%;
+  background-color: rgba(0,0,0,0.25);
+  color: rgba(255,255,255,0.92);
+  border: 0px;
+  border-radius: 3px; /* 5px; */
+  font-size: 0.85em;
+  font-family: monospace;
+  line-height: 1.5em;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.clientFormWrapper input[type="text"],
+.clientFormWrapper input[type="email"],
+.clientFormWrapper textarea {
+  padding: 0.5em 0.8em;
+}
+.clientFormWrapper textarea {
+  resize: none;
+}
+.clientFormWrapper input[type="file"] {
+  padding: 0.4em 0.5em;
+}
+.clientFormWrapper button {
+  border-radius: 5px;
+  font-size: 0.85em;
+  font-family: monospace;
+  line-height: 1.5em;  
+  padding: 0.5em 0.8em;
+  background: rgba(0,0,0,0.25);
+  color: rgba(255,255,255,0.92);
+  border: 1px solid rgba(0,0,0,0.125);  
+}
+.clientFormWrapper button:hover {
+  cursor: pointer;
+}
+.clientFormWrapper input:focus,
+.clientFormWrapper textarea:focus {
+  border: 1px solid rgba(255,255,255,0.5) !important;
+  outline: none;
+}
+
+
+::-webkit-file-upload-button {
+  background-color: transparent;
+  border: 1px solid rgba(255,255,255,0.35);
+  color: white;
+  margin-right: 1em;
+  padding: 4px 8px;
+}
+
+
+
+/* ************************************************************************************ */
+/* ************************************************************************************ */
+/* ************************************************************************************ */
+/* ************************************************************************************ */
+
+@media screen {
+
+  body {
+    font-size: 18px;
+  }
+
+  header .inside {
+    grid-template-columns: max-content 1fr 0px max-content;
+  }  
+
+  h1.logo span#bigLogo {
+    display: none;
+    cursor: pointer;
+  }
+  h1.logo span#smallLogo {
+    display: block;
+    cursor: pointer;
+  }  
+
+  /* choose menu */
+  .menuWrapper { height: 0px; overflow: hidden; }
+
+  #overlay {
+    inset: 0rem 0rem 3.25rem 0rem; /* 1rem 1rem 3.5rem 1rem; */
+    padding: 1rem;
+    border-radius: 0;    
+  }  
+
+  .clientFormWrapper .row {
+    grid-template-columns: 1fr;
+  }
+  .clientFormWrapper .rowHidden {
+    grid-template-columns: 0px 1fr;
+  }  
+
+}
+
+
+/* ************************************************************************************ */
+/* LARGER */
+
+@media screen and (min-width: 400px) {
+
+
+  #overlay {
+    inset: 0.65rem 0.65rem 4rem 0.65rem; /* 1rem 1rem 3.5rem 1rem; */
+    padding: 1rem;
+    border-radius: 0.35rem;
+  }  
+
+}
+
+/* ************************************************************************************ */
+/* LARGER */
+
+@media screen and (min-width: 800px) {
+
+  body {
+    font-size: 19px;    
+  }
+
+  #overlay {
+    inset: 1rem 1rem 4.5rem 1rem; /* 1rem 1rem 3.5rem 1rem; */
+    padding: 1rem;
+  }  
+
+  header .inside {
+    grid-template-columns: max-content 0px 1fr max-content;
+  }  
+
+  h1.logo span#bigLogo {
+    display: block;
+  }
+  h1.logo span#smallLogo {
+    display: none;
+  }  
+
+  /* choose menu */
+  .menuWrapper { height: auto; }
+  .mobileMenuWrapper { height: 0px; overflow: hidden; }
+  
+  #mobileMenuOverlay {
+    display: none !important;
+  }
+
+  .clientFormWrapper .row {
+    grid-template-columns: 7ch 1fr;
+  }
+  .clientFormWrapper .rowHidden {
+    grid-template-columns: 7ch 1fr;
+  }   
+
+}
+
+/* ************************************************************************************ */
+/* LARGER */
+
+@media screen and (min-width: 1024px) {
+
+
+  body {
+    font-size: 20px;    
+  }
+
+  #overlay {
+    inset: 1rem 1rem 4.5rem 1rem; /* 1rem 1rem 3.5rem 1rem; */
+    padding: 2rem;
+  }
+
+}
