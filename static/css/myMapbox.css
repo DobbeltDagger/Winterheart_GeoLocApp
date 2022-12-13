@@ -3,8 +3,8 @@
 :root {
   --text-color: rgba(0,0,0,0.86);
   --boxShadow-color: rgba(0,0,0,0.25);
-  --overlay-bgcolor: darkgreen;
-  --overlay-textColor: rgba(255,255,255,0.96);
+  --overlay-bgcolor: whitesmoke;
+  --overlay-textColor: #222;
 }
 
 /* ************************************************************************ */
@@ -70,17 +70,19 @@
 
 /* POPUP */
 .mapboxgl-popup {
-  max-width: 300px !important; /* 500px !important; /* 200px; */
+  max-width: 500px !important; /* 500px !important; /* 200px; */
   
 }
 
 
 /* player inside popup */
 .mapboxgl-popup-content {
-  padding: 2px !important; /* 10px 10px 10px 10px !important; /* 10px 10px 15px; */
+  padding: 1em;
   background-color: var(--overlay-bgcolor) !important;
   color: var(--overlay-textColor);
   box-shadow: 0px 1px 12px rgba(0,0,0,0.5);
+  font-size: 2em;
+  line-height: 1.25em;
 }
 
 
@@ -169,19 +171,11 @@
 
 
 .mapboxgl-popup-close-button {
-  /*
-  position: absolute;
-  right: 0;
-  top: 0;
-  border: 0;
-  border-radius: 0 3px 0 0;
-  cursor: pointer;
-  */
   border-radius: 0 3px 0 3px;
   background-color: transparent; /* var(--overlay-bgcolor); */
-  color: var(--overlay-bgcolor);
+  color: var(--overlay-textColor);
+  font-size: 1em;
   padding: 0.375em 0.5em;
-  font-size: 20px;
 }
 
 .mapboxgl-popup-close-button:hover {

@@ -13,6 +13,13 @@ export class App {
     this.map = null;
   }
 
+  
+  ///////////////////////////////////////
+  handleCopyTextFromParagraph(lng, lat) {
+    const cb = navigator.clipboard;
+    cb.writeText(lng + ", " + lat).then(() => console.log('Text copied'));
+  }
+
 
   ///////////////////////////////////////
   // setup the app
@@ -34,11 +41,10 @@ export class App {
 
     ////////////////////////////////////
     // mapbox load maps
-    // let _this = this; // I DONT HAVE TO DO THIS!!!
+    let _this = this; // I DONT HAVE TO DO THIS!!!
     this.map.on('load', () => {
 
       // setup enterBtn click listener
-      let _this = this;
       document.getElementById("enterBtn").addEventListener("click", function(e) {
         e.preventDefault();
         document.querySelector('#loadingScreen').classList.add("hidden"); // remove entire loadingscreen!
@@ -50,6 +56,17 @@ export class App {
       // hide loadingscreen
       document.querySelector("#loadWrapper").classList.add("hidden");
       document.querySelector("#enterWrapper").classList.add("shown");
+
+      _this.map.on('click', function(e) {
+        var coords = e.lngLat;
+        console.log("coords:", coords);
+        new mapboxgl.Popup()
+          .setLngLat(coords)
+          .setHTML('Lng + Lat:<br/>' + coords.lng + '<br/>' + coords.lat)
+          .addTo(_this.map);
+
+        _this.handleCopyTextFromParagraph(coords.lng, coords.lat) 
+      });
     });
 
 
